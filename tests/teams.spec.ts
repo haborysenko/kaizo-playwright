@@ -43,7 +43,7 @@ test.describe("Kaizo Team Creation and Deletion", () => {
   });
 
   test("should create a team, delete it and verify", async () => {
-    // Switch to the iframe content to interact with elements inside
+    // Switch to the iframe content to interact with elements in iframe
     const iframe = await iframeLocator.contentFrame();
 
     // Open Teams tab
