@@ -32,7 +32,11 @@ test.describe("Kaizo Team Creation and Deletion", () => {
     // Login, open Kaizo settings/people
     await page.goto(process.env.BASE_URL);
     await login(page);
+    await page
+      .locator("button[title='Kaizo']")
+      .waitFor({ state: "visible", timeout: 90000 }); // Ensure it's visible
     await page.click("button[title='Kaizo']");
+
     await page.goto(`${process.env.BASE_URL}agent/apps/kaizo/settings/people`);
 
     // Ensure Kaizo iframe is available for interaction
