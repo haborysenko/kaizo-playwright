@@ -51,7 +51,7 @@ touch .env
 ```bash
 BASE_URL=<your_value>
 USERNAME=<your_value>
-PASSWORD=<your_value>
+USER_PASSWORD=<your_value>
 ```
 
 ## Running the Tests
