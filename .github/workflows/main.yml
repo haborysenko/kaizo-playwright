@@ -35,4 +35,4 @@ jobs:
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
 
       - name: Run tests
-        run: npm test -- --reporter=list --timeout=60000 # Added verbose logging and timeout
+        run: npm test -- --reporter=list --timeout=60000 --project=chromium
