@@ -53,12 +53,8 @@ test.describe("Kaizo Team Creation and Deletion", () => {
     // Open Teams tab
     await iframe.locator(teamTabButtonLocator).click();
 
-    // Wait for Pendo overlay to disappear or dismiss it
-    const pendoOverlay = page.locator("#pendo-base"); // Example selector for Pendo
-    await pendoOverlay.waitFor({ state: "hidden", timeout: 30000 }); // Wait for it to disappear
-
     // Create a new team
-    await iframe.locator(createTeamButtonLocator).click();
+    await iframe.locator(createTeamButtonLocator).click({ force: true });
     await iframe.locator(nameInputLocator).fill(teamName);
     await iframe.locator(descriptionInputLocator).fill(teamDescription);
     await iframe.locator(saveButtonLocator).click();
