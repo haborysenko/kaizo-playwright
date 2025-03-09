@@ -1,4 +1,4 @@
-name: API Test CI/CD
+name: UI Test CI/CD
 
 on:
   push:
@@ -17,8 +17,16 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "16" # Make sure to use the right node version
+
       - name: Install dependencies
         run: npm install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install
 
       - name: Set up environment variables
         run: |
@@ -27,4 +35,4 @@ jobs:
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> .env
 
       - name: Run tests
-        run: npm test
+        run: npm test -- --reporter=list # Added verbose logging
